@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: start_argoworkflows
+  namespace: start_argo
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Sweetmine/argo-workflows.git
+    targetRevision: HEAD
+    path: ./manifests/postgres
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
