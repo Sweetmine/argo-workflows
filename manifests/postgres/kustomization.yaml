@@ -1,0 +1,11 @@
+resources:
+  - quick-start-postgres.yaml  
+
+#namePrefix: nodePort-
+
+commonLabels:
+  env: nodeport
+
+patches:
+  - nodeport.yaml
+ 

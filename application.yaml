@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: startworkflows
+  name: argoworkflows
   namespace: argocd
 spec:
   project: default
@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Sweetmine/argo-workflows.git
     targetRevision: HEAD
-    path: ./manifests/postgres
+    path: ./manifests/postgres/kustomize
   destination:
     server: https://kubernetes.default.svc
     namespace: argo
